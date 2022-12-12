@@ -4,16 +4,16 @@ services:
   - docker
 
 before_install:
-  - docker build -t charan/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t charanrj/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true charan/react-test npm test
+  - docker run -e CI=true charanrj/react-test npm test
 
 after_success:
-  - docker build -t charan/multi-client ./client
-  - docker build -t charan/multi-nginx ./nginx
-  - docker build -t charan/multi-server ./server
-  - docker build -t charan/multi-worker ./worker
+  - docker build -t charanrj/multi-client ./client
+  - docker build -t charanrj/multi-nginx ./nginx
+  - docker build -t charanrj/multi-server ./server
+  - docker build -t charanrj/multi-worker ./worker
 
 
 # login to docker cli
@@ -23,8 +23,8 @@ after_success:
 #take those images and push to docker hub
 
 
-  - docker push charan/multi-client
-  - docker push charan/multi-nginx
-  - docker push charan/multi-server
-  - docker push charan/multi-worker
+  - docker push charanrj/multi-client
+  - docker push charanrj/multi-nginx
+  - docker push charanrj/multi-server
+  - docker push charanrj/multi-worker
   
